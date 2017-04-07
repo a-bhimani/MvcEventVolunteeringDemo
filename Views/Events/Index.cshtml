@@ -1,0 +1,102 @@
+﻿@model IEnumerable<MvcEventVolunteeringDemo.Models.Event>
+@{
+  ViewBag.Title = "Events";
+}
+
+<div id="data-list" class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <span class="bold">@ViewBag.Title</span>
+                @Html.ActionLink("Add New", "Edit",
+                                    new { area = "" },
+                                    new { @class = "white right" })
+            </div>
+            <div class="panel-body">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StartDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EndDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Title)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Capacity)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.VolunteersRequired)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.VenueAddress)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.VenueCity)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.VenueState)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.VenueZip)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.VenuePhone)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IsActive)
+                            </th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StartDate)<br />@Html.DisplayFor(modelItem => item.StartTime)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EndDate)<br />@Html.DisplayFor(modelItem => item.EndTime)
+                            </td>
+                            <td>
+                                @Html.ActionLink(item.Title, "Edit", new { id = item.EventID }, new { @class = "blue bold" })
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Capacity)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.VolunteersRequired)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.VenueAddress)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.VenueCity)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.VenueState)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.VenueZip)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.VenuePhone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IsActive)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.EventID }, new { @class = "blue" }) | @Html.ActionLink("Delete", "Delete", new { id = item.EventID }, new { @class = "red" })
+                            </td>
+                        </tr>}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

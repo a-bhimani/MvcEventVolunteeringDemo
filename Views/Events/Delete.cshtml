@@ -1,0 +1,111 @@
+﻿@model MvcEventVolunteeringDemo.Models.Event
+@{
+  ViewBag.Title = "Events : Delete";
+}
+
+<div id="data-list" class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <span class="bold">@ViewBag.Title</span>
+                @Html.ActionLink("Back to List", "Index",
+                                        new { area = "" },
+                                        new { @class = "white right" })
+            </div>
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.StartDate)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.StartDate)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.StartTime)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.StartTime)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.EndDate)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.EndDate)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.EndTime)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.EndTime)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Title)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Description)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Capacity)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Capacity)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.VolunteersRequired)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.VolunteersRequired)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.VenueAddress)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.VenueAddress)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.VenueCity)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.VenueCity)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.VenueState)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.VenueState)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.VenueZip)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.VenueZip)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.VenuePhone)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.VenuePhone)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IsActive)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.IsActive)
+                    </dd>
+                </dl>
+                @using (Html.BeginForm())
+                {
+                @Html.AntiForgeryToken()
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                </div>}
+            </div>
+        </div>
+    </div>
+</div>

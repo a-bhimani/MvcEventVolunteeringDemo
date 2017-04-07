@@ -1,0 +1,62 @@
+﻿@model MvcEventVolunteeringDemo.Models.Volunteering
+@{
+  ViewBag.Title = "Assignments : Delete";
+}
+
+<div id="data-list" class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <span class="bold">@ViewBag.Title</span>
+                @Html.ActionLink("Back to List", "Index",
+                                                new { area = "" },
+                                                new { @class = "white right" })
+            </div>
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>
+                        Event
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Event.Title)
+                    </dd>
+                    <dt>
+                        Volunteer
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Volunteer.Username)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.BeginDate)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.BeginDate) @Html.DisplayFor(model => model.BeginTime)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.EndDate)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.EndDate) @Html.DisplayFor(model => model.EndTime)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Remarks)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Remarks)
+                    </dd>
+                </dl>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

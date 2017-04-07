@@ -1,0 +1,74 @@
+﻿@model IEnumerable<MvcEventVolunteeringDemo.Models.Volunteering>
+@{
+  ViewBag.Title = "Assignments";
+}
+
+<div id="data-list" class="row">
+    <div class="col-sm-12">
+        @{
+          string spanClassName=string.Empty;
+          if(string.IsNullOrEmpty(ViewBag.Error)){
+                spanClassName="hide";
+              }
+        }
+        <div class="alert alert-danger @spanClassName">@ViewBag.Error</div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <span class="bold">@ViewBag.Title</span>
+                @Html.ActionLink("Assign", "Create",
+                                            new { area = "" },
+                                            new { @class = "white right" })
+            </div>
+            <div class="panel-body">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>
+                                Event
+                            </th>
+                            <th>
+                                Volunteer
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.BeginDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EndDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Remarks)
+                            </th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Event.Title)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Volunteer.FirstName) (@Html.DisplayFor(modelItem => item.Volunteer.Username))
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BeginDate) @Html.DisplayFor(modelItem => item.BeginTime)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EndDate) @Html.DisplayFor(modelItem => item.EndTime)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Remarks)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.VolunteeringID }, new { @class = "red" })
+                            </td>
+                        </tr>}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

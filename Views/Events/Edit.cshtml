@@ -1,0 +1,187 @@
+﻿@model MvcEventVolunteeringDemo.Models.Event
+
+
+<div id="data-list" class="row">
+<div class="col-sm-12">
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <span class="bold">@ViewBag.Title</span>
+        @Html.ActionLink("Back to List", "Index",
+                                        new { area = "" },
+                                        new { @class = "white right" })
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm())
+        {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.EventID)
+            @{
+              bool t=ViewBag.IsEdit;
+              string spanClassName=string.Empty;
+              if(t){
+                spanClassName="hide";
+              }
+            }
+            <div class="form-group">
+                @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @type = "text", @class = "form-control datebox xdate" } }).IsReadonly(t)
+                    @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.StartTime, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.StartTime, new { htmlAttributes = new { @class = "form-control numeric", @maxlength = "5" } }).IsReadonly(t) <span class="@spanClassName field-validation-error red">Enter in 24:00 format.</span>
+                    @Html.ValidationMessageFor(model => model.StartTime, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @type = "text", @class = "form-control datebox xdate" } }).IsReadonly(t)
+                    @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EndTime, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EndTime, new { htmlAttributes = new { @class = "form-control", @maxlength = "5" } }).IsReadonly(t) <span class="@spanClassName field-validation-error red">Enter in 24:00 format.</span>
+                    @Html.ValidationMessageFor(model => model.EndTime, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @maxlength = "30" } })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Capacity, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Capacity, new { htmlAttributes = new { @class = "form-control numeric", @type = "text", @maxlength = "4" } })
+                    @Html.ValidationMessageFor(model => model.Capacity, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.VolunteersRequired, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.VolunteersRequired, new { htmlAttributes = new { @class = "form-control numeric", @type = "text", @maxlength = "4" } })
+                    @Html.ValidationMessageFor(model => model.VolunteersRequired, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.VenueAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.VenueAddress, new { htmlAttributes = new { @class = "form-control", @maxlength = "180" } })
+                    @Html.ValidationMessageFor(model => model.VenueAddress, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.VenueCity, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.VenueCity, new { htmlAttributes = new { @class = "form-control", @maxlength = "60" } })
+                    @Html.ValidationMessageFor(model => model.VenueCity, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.VenueState, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.VenueState, new { htmlAttributes = new { @class = "form-control", @maxlength = "60" } })
+                    @Html.ValidationMessageFor(model => model.VenueState, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.VenueZip, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.VenueZip, new { htmlAttributes = new { @class = "form-control numeric", @type="text", @maxlength = "5" } })
+                    @Html.ValidationMessageFor(model => model.VenueZip, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.VenuePhone, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.VenuePhone, new { htmlAttributes = new { @Value = ViewBag.IsEdit ? Model.VenuePhone.ToString("#") : string.Empty, @class = "form-control numeric", @maxlength = "10" } })
+                    @Html.ValidationMessageFor(model => model.VenuePhone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.IsActive)
+                    @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-success" />
+                </div>
+            </div>
+        </div>}
+    </div>
+</div>
+</div>
+</div>
+
+@section scripts{
+<script src="/assets/js/jquery.validate.min.js"></script>
+<script src="/assets/js/jquery.validate.unobtrusive.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('input#IsActive').attr('checked', 'checked');
+
+    $(document.forms[0]).submit(function(){
+       var b1=false;
+       var b2=false;
+       try{
+            var StartVal=$('input#StartTime').val().split(':');
+            var EndVal=$('input#EndTime').val().split(':');
+            if((parseInt(StartVal[0], 10)>=0) && (parseInt(StartVal[0], 10)<=23)){
+                if((parseInt(StartVal[1], 10)>=0) && (parseInt(StartVal[1], 10)<=59)){
+                    b1=true;
+                }
+            }
+            if((parseInt(EndVal[0], 10)>=0) && (parseInt(EndVal[0], 10)<=23)){
+                if((parseInt(EndVal[1], 10)>=0) && (parseInt(EndVal[1], 10)<=59)){
+                    b2=true;
+                }
+            }
+            if(!b1){
+                alert('Start Time must be in valid format.');                
+            }
+            if(!b2){
+                alert('End Time must be in valid format.');                
+            }
+       }catch(ex){
+            ;
+       }
+       return (b1 && b2);
+    });
+});
+</script>
+}
+

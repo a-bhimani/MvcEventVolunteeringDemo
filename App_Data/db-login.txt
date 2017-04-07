@@ -1,0 +1,7 @@
+as34.database.windows.net
+MvcEventVolunteeringDatabase
+MvcEventVolunteeringDatabaseSQLA
+G9dcE#SSvsU3-r^R
+
+Server=tcp:as34.database.windows.net,1433;Initial Catalog=MvcEventVolunteeringDatabase;Persist Security Info=False;User ID=MvcEventVolunteeringDatabaseSQLA;Password=G9dcE#SSvsU3-r^R;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+

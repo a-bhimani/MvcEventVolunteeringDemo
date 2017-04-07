@@ -1,0 +1,103 @@
+﻿
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.justify, .text-justify {
+	text-align: justify;
+}
+
+.text-center, .text-centre {
+	text-align: center !important;
+}
+
+.bold, .strong {
+	font-weight: bold;
+}
+
+.italize {
+	font-style: italic;
+}
+
+.show-n {
+	display: block;
+}
+
+.hide-n {
+	display: none;
+}
+
+.noscroll {
+	overflow: hidden !important;
+}
+
+.redline {
+	background: #ffBfBf !important;
+	border-color: #DD0000 !important;
+}
+
+.error, .red {
+	color: #DD0000 !important;
+}
+
+.success, .green {
+	color: #087208 !important;
+}
+
+.blue {
+	color: #0000CC !important;
+}
+
+.white, .white:hover{
+	color:#fff !important;
+}
+
+.wrap {
+	white-space: pre-line !important;
+}
+
+body {
+	padding-top: 50px;
+	padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+	white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+	max-width: 280px;
+}
+
+
+
+#data-list{margin-top:25px;}
+.field-validation-error{color:#ff0000 !important;font-size:11px;display:block;margin:4px 0 0 4px;width:260px;}
+
+
+
+
